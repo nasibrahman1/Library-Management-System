@@ -1,0 +1,86 @@
+{% include "/dashboard/dashboard_header.html" %}
+{% include "/dashboard/dashboard-aside.html" %}
+
+      <main class="mt-1 pt-3">
+        <div class="container-fluid">
+          <div class="row dashboard-counts">
+            <div class=" row col-md-12">
+              <h4 class="fw-bold text-uppercase">Manage Users</h4>
+            </div>
+
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  All Members
+                </div>
+                <div class="card-body">
+                  
+                  {%if member_list %}
+                  <table class="table">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Date joined</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {%for member in member_list%}
+                        <tr>
+                        <th scope="row">{{member.member_id}}</th>
+                        <td>{{member.full_name}}</td>
+                        <td>{{member.date_of_birth}}</td>
+                        <td>{{member.email}}</td>
+                        <td>{{member.date_created}}</td>
+                        <td><span class="badge text-bg-success">Active</span></td>
+                        <td>
+                          <a href="{{url_for("delete_member", member_id=member.member_id)}}" class="btn btn-danger">Delete</a>
+                        </td>
+                      </tr>
+
+                     {%endfor%}
+                    </tbody>
+                  </table>
+                  {%else%}
+                  <h3 class="text-danger">No members </h3>
+                  {%endif%}
+                </div>
+              </div>
+
+                 
+            </div>
+            
+          </div>
+         
+        </div>
+      </main>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script src="https://kit.fontawesome.com/355b51317d.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>

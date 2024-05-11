@@ -1,0 +1,113 @@
+<div class="offcanvas offcanvas-start bg-dark text-white sidebar-nav " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-body">
+   <ul class="navbar-nav">
+    <li class="nav-item">
+      <div class="text-secondary small text-uppercase fw-bold">Core</div>
+    </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/dashboard"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+    </li>
+
+    <li class="nav-item my-0">
+    <hr>         
+   </li>
+
+    <li class="nav-item">
+      <div class="text-secondary small text-uppercase fw-bold">Inventery</div>
+    </li>
+  <li class="nav-item">
+    <a class="nav-link sidebar-link " data-bs-toggle="collapse" href="#booksMgmt" role="button" aria-expanded="false" aria-controls="booksMgmt">
+<i class="fa-solid fa-book me-2"></i> Books Management
+<span class="float-end right-icon"><i class="fa-solid fa-chevron-down "></i></span>
+   </a>
+    <div class="collapse" id="booksMgmt">
+<div class="collapse" id="booksMgmt">
+<ul class="navbar-nav ps-3">
+<li>
+  <a href="/dashboard/books/add-book/" class="nav-link"><i class="fa-solid fa-plus me-2"></i>Add New</a>
+</li>
+<li>
+  <a href="/dashboard/books/" class="nav-link"><i class="fa-solid fa-list me-2"></i>Manage All</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link sidebar-link " data-bs-toggle="collapse" href="#studentMgmt" role="button" aria-expanded="false" aria-controls="collapseExample">
+<i class="fa-solid fa-users me-2"></i> Users Management
+<span class="float-end right-icon"><i class="fa-solid fa-chevron-down "></i></span>
+   </a>
+    <div class="collapse" id="studentMgmt">
+<div class="collapse" id="studentMgmt" >
+<ul class="navbar-nav ps-3">
+
+<li>
+  <a href="/dashboard/members" class="nav-link"><i class="fa-solid fa-list me-2"></i>Manage All</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+  </li>
+
+  <li class="nav-item my-0">
+    <hr>         
+   </li>
+
+    <li class="nav-item">
+      <div class="text-secondary small text-uppercase fw-bold">Check Books</div>
+    </li>  
+    <li class="nav-item">
+      <a class="nav-link sidebar-link " data-bs-toggle="collapse" href="#checkMgmt" role="button" aria-expanded="false" aria-controls="booksMgmt">
+        <i class="fa-solid fa-receipt me-2"></i>Check In/Out 
+<span class="float-end right-icon"><i class="fa-solid fa-chevron-down "></i></span>
+     </a>
+      <div class="collapse" id="checkMgmt">
+<div class="collapse" id="checkMgmt">
+<ul class="navbar-nav ps-3">
+  <li>
+        <a href="{{url_for("borrowed_book")}}" class="nav-link"><i class="fa-solid fa-id-card  me-2"></i></i>Issue Book</a>
+  </li>
+
+</ul>
+
+</div>
+</div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link sidebar-link " data-bs-toggle="collapse" href="#historyMgmt" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <i class="fa-solid fa-clock-rotate-left me-2"></i>Book Check History
+<span class="float-end right-icon"><i class="fa-solid fa-chevron-down "></i></span>
+     </a>
+      <div class="collapse" id="historyMgmt">
+<div class="collapse" id="historyMgmt" >
+<ul class="navbar-nav ps-3">
+  <li>
+    <a href="{{url_for("returned_book")}}" class="nav-link"><i class="fa-solid fa-plus me-2"></i>Returned Books</a>
+  </li>
+  <li>
+    <a href="/dashboard/borrowed-books" class="nav-link"><i class="fa-solid fa-list me-2"></i>Borrowed books</a>
+  </li>
+  
+</ul>
+
+</div>
+</div>
+    </li>
+
+    <li class="nav-item my-0">
+      <hr>         
+     </li>
+
+      <li class="nav-item">
+        <a class="nav-link acitve" href="{{url_for("logout")}}"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
+      </li>
+
+</li>
+</ul>
+  </div>
+</div>

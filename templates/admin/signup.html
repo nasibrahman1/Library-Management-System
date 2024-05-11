@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">        
+    <link rel="stylesheet" href= {{url_for('static', filename='register.css')}}>
+  </head>
+<style>
+  .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 0.5rem;
+    line-height: 1.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+
+    .img-fluid {
+        max-width: 500px;;
+    }
+</style>
+      <body>
+        <section
+          class="vh-80"
+          style="background-image: url(../images/book\\(6\).jpg)"
+        >
+          <div class="container h-80">
+            <div
+              class="row d-flex justify-content-center align-items-center h-100"
+            >
+              <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px">
+                  <div class="card-body p-md-5">
+                    <div class="row justify-content-center">
+                      <div
+                        class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1"
+                      >
+                        <p
+                          class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"
+                        >
+                          Admin Registration
+                        </p>
+                        {% with messages =
+                          get_flashed_messages(with_categories=true) %} {% if
+                          messages %} {% for category, message in messages %}
+                          <div class="alert alert-{{category}}">
+                            {{message}}
+                          </div>
+                          {% endfor %} {% endif %} {% endwith %}
+
+                          <form method="POST" , action="", enctype="multipart/form-data">
+                          {{form.hidden_tag()}}
+                          
+
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            
+                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                            <div
+                              data-mdb-input-init
+                              class="form-outline flex-fill mb-0"
+                            >
+                            {{form.f_name.label(class="form-label")}}
+                            {% if form.f_name.errors %}
+                              <div class="invalid_feedback">
+                                {% for error in form.f_name.errors %}
+                                 <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                              </div>
+                            {% endif %}
+                              {{ form.f_name(class="form-control")}}
+                            </div>
+                          </div>
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            
+                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                            <div
+                              data-mdb-input-init
+                              class="form-outline flex-fill mb-0"
+                            >
+                            {{form.last_name.label(class="form-label")}}
+                            {% if form.last_name.errors %}
+                              <div class="invalid_feedback">
+                                {% for error in form.email.errors %}
+                                 <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                              </div>
+                            {% endif %}
+                              {{ form.last_name(class="form-control")}}
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="d-flex flex-row align-items-center mb-4">
+                            
+                              <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                              <div
+                                data-mdb-input-init
+                                class="form-outline flex-fill mb-0"
+                              >
+                            {{form.user_profile.label(class="form-label")}}
+                            {% if form.user_profile.errors %}
+                              <div class="invalid_feedback">
+                                {% for error in form.user_profile.errors %}
+                                 <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                              </div>
+                            {% endif %}
+                              {{ form.user_profile(class="form-control")}}
+                              </div>
+                            </div>
+                            <div class="row">
+  
+      
+
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                            <div
+                              data-mdb-input-init
+                              class="form-outline flex-fill mb-0"
+                            >
+                            {{form.username.label(class="form-label")}}
+                            {% if form.username.errors %}
+                              <div class="invalid_feedback">
+                                {% for error in form.username.errors %}
+                                 <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                              </div>
+                            {% endif %}
+                              {{ form.username(class="form-control")}}
+                            </div>
+                          </div>
+
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                            <div
+                              data-mdb-input-init
+                              class="form-outline flex-fill mb-0"
+                            >
+                            {{form.email.label(class="form-label")}}
+                            {% if form.email.errors %}
+                              <div class="invalid_feedback">
+                                {% for error in form.email.errors %}
+                                 <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                              </div>
+                            {% endif %}
+                              {{ form.email(class="form-control")}}
+                              
+                            </div>
+                          </div>
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            
+                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                            <div
+                              data-mdb-input-init
+                              class="form-outline flex-fill mb-0"
+                            >
+                            {{form.contact_number.label(class="form-label")}}
+                            {% if form.contact_number.errors %}
+                              <div class="invalid_feedback">
+                                {% for error in form.contact_number.errors %}
+                                 <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                              </div>
+                            {% endif %}
+                              {{ form.contact_number(class="form-control")}}
+                            </div>
+                          </div>
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                            <div
+                              data-mdb-input-init
+                              class="form-outline flex-fill mb-0"
+                            >
+                            {{form.password.label(class="form-label")}}
+                            {% if form.password.errors %}
+                              <div class="invalid_feedback">
+                                {% for error in form.password.errors %}
+                                 <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                              </div>
+                            {% endif %}
+                              {{ form.password(class="form-control")}}
+                            </div>
+                          </div>
+
+                          <div class="d-flex flex-row align-items-center mb-4">
+                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                            <div
+                              data-mdb-input-init
+                              class="form-outline flex-fill mb-0"
+                            >
+                            {{form.confirm_password.label(class="form-label")}}
+                            {% if form.confirm_password.errors %}
+                              <div class="invalid_feedback">
+                                {% for error in form.confirm_password.errors %}
+                                 <span class="text-danger">{{ error }}</span>
+                                {% endfor %}
+                              </div>
+                            {% endif %}
+                              {{ form.confirm_password(class="form-control")}}
+                            </div>
+                          </div>
+
+
+                          <div
+                            class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
+                          >
+                          {{ form.submit(class="btn btn-primary btn-lg")}}
+                          </div>
+                        </form>
+                      </div>
+                      <div
+                        class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
+                      >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"
+        ></script>
+      </body>
+    </html>
+  </body>
+</html>

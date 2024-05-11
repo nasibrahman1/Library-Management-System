@@ -1,0 +1,103 @@
+{% include "/dashboard/dashboard_header.html" %}
+{% include "/dashboard/dashboard-aside.html" %}
+      <main class="mt-1 pt-3">
+        <div class="container-fluid">
+          <div class="row dashboard-counts">
+            <div class=" row col-md-12">
+              <h4 class="fw-bold text-uppercase">Add Book</h4>
+            </div>
+
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  Fill the form
+                </div>
+                <div class="card-body">
+
+                  <form method="POST" , action="", enctype="multipart/form-data">
+                      {{ form.hidden_tag() }}
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          {{form.title.label(class="form-label")}}
+                          {{ form.title(class="form-control")}}
+                        
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="mb-3">
+                          {{form.isbn.label(class="form-label")}}
+                          {{ form.isbn(class="form-control")}}
+                        </div>
+                      </div>
+                  
+          
+                    <div class="col-md-6">
+                    <div class="mb-3">
+                    {{form.publisher.label(class="form-label")}}
+                    {{ form.publisher(class="form-control")}}
+
+                    </div>
+                    </div>
+
+                    <div class="col-md-6">
+                    <div class="mb-3">
+                      {{form.author.label(class="form-label")}}
+                          {{ form.author(class="form-control")}}
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    {{form.category.label(class="form-label")}}
+                    {{ form.category(class="form-control")}}
+                  </div>
+                  
+
+        
+                  <div class="col-md-12">
+                    {{form.cover_photo.label}}
+                    {{ form.cover_photo}}
+                  </div>
+
+                  <div class="col-md-12 mt-3">
+                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                    {{form.submit_book(class="btn btn-primary")}}
+                    </div>
+
+                  </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+         
+        </div>
+      </main>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script src="https://kit.fontawesome.com/355b51317d.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>

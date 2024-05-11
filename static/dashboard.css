@@ -1,0 +1,47 @@
+.user-icon {
+    height: 30px;
+    border-radius: 100%;
+}
+
+:root {
+    --offconvas-width: 270px;
+    --topNavbarHeight:56px;
+}
+.sidebar-nav {
+ width: var(--offconvas-width) !important;
+}
+
+.sidebar-link .right-icon {
+    transition: all 0.2s;
+}
+
+@media (min-width:992px) {
+    .offcanvas-backdrop {
+        display: none !important;
+    }
+    .sidebar-nav {
+        transform: none !important;
+        visibility: visible !important;
+        top: var(--topNavbarHeight) !important;
+    }
+
+    main {
+        margin-left: var(--offconvas-width);
+    }
+}
+
+@media(max-width: 480px){
+    .dashboard-counts .card {
+        margin-bottom: 20px;
+    }
+
+    .dashboard-tabs .nav-tabs .nav-link {
+        padding: 6px;
+        font-size: 12px;
+
+    }
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+    transform: rotate(180deg);
+}

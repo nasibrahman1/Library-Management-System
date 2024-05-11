@@ -1,0 +1,315 @@
+{% include "/dashboard/dashboard_header.html" %}
+
+      <div class="offcanvas offcanvas-start bg-dark text-white sidebar-nav " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-body">
+         <ul class="navbar-nav">
+          <li class="nav-item">
+            <div class="text-secondary small text-uppercase fw-bold">Core</div>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+          </li>
+
+          <li class="nav-item my-0">
+          <hr>         
+         </li>
+
+          <li class="nav-item">
+            <div class="text-secondary small text-uppercase fw-bold">Inventery</div>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link sidebar-link " data-bs-toggle="collapse" href="#booksMgmt" role="button" aria-expanded="false" aria-controls="booksMgmt">
+   <i class="fa-solid fa-book me-2"></i> Books Management
+   <span class="float-end right-icon"><i class="fa-solid fa-chevron-down "></i></span>
+         </a>
+          <div class="collapse" id="booksMgmt">
+  <div class="collapse" id="booksMgmt">
+    <ul class="navbar-nav ps-3">
+      <li>
+        <a href="/dashboard/books/add-book" class="nav-link"><i class="fa-solid fa-plus me-2"></i>Add New</a>
+      </li>
+      <li>
+        <a href="/dashboard/books" class="nav-link"><i class="fa-solid fa-list me-2"></i>Manage All</a>
+      </li>
+
+    </ul>
+
+  </div>
+</div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sidebar-link " data-bs-toggle="collapse" href="#studentMgmt" role="button" aria-expanded="false" aria-controls="collapseExample">
+   <i class="fa-solid fa-users me-2"></i> Users Management
+   <span class="float-end right-icon"><i class="fa-solid fa-chevron-down "></i></span>
+         </a>
+          <div class="collapse" id="studentMgmt">
+  <div class="collapse" id="studentMgmt" >
+    <ul class="navbar-nav ps-3">
+      <li>
+        <a href="/dashboard/members/add-member" class="nav-link"><i class="fa-solid fa-plus me-2"></i>Add New</a>
+      </li>
+      <li>
+        <a href="/dashboard/members/approve/" class="nav-link"><i class="fa-solid fa-circle-check me-2"></i></i>Members Approval</a>
+      </li>
+      <li>
+        <a href="/dashboard/members" class="nav-link"><i class="fa-solid fa-list me-2"></i>Manage All</a>
+      </li>
+    </ul>
+
+  </div>
+</div>
+        </li>
+
+        <li class="nav-item my-0">
+          <hr>         
+         </li>
+
+          <li class="nav-item">
+            <div class="text-secondary small text-uppercase fw-bold">Check Books</div>
+          </li>  
+          <li class="nav-item">
+            <a class="nav-link sidebar-link " data-bs-toggle="collapse" href="#checkMgmt" role="button" aria-expanded="false" aria-controls="booksMgmt">
+              <i class="fa-solid fa-receipt me-2"></i>Check In/Out 
+     <span class="float-end right-icon"><i class="fa-solid fa-chevron-down "></i></span>
+           </a>
+            <div class="collapse" id="checkMgmt">
+    <div class="collapse" id="checkMgmt">
+      <ul class="navbar-nav ps-3">
+        <li>
+          <a href="{{url_for("borrowed_book")}}" class="nav-link"><i class="fa-solid fa-id-card  me-2"></i></i>Issue Book</a>
+        </li>
+        <li>
+          <a href="{{url_for("manage_book")}}" class="nav-link"><i class="fa-solid fa-person-circle-check me-2"></i></i>Check Out / Approval</a>
+        </li>
+  
+      </ul>
+  
+    </div>
+  </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link sidebar-link " data-bs-toggle="collapse" href="#historyMgmt" role="button" aria-expanded="false" aria-controls="collapseExample">
+              <i class="fa-solid fa-clock-rotate-left me-2"></i>Book Check History
+     <span class="float-end right-icon"><i class="fa-solid fa-chevron-down "></i></span>
+           </a>
+            <div class="collapse" id="historyMgmt">
+    <div class="collapse" id="historyMgmt" >
+      <ul class="navbar-nav ps-3">
+        <li>
+          <a href="{{url_for("returned_book")}}" class="nav-link"><i class="fa-solid fa-book-bookmark me-2"></i>Returned Books</a>
+        </li>
+        <li>
+          <a href="/dashboard/borrowed-books/" class="nav-link"><i class="fa-solid fa-notdef me-2"></i>Borrowed books</a>
+        </li>
+        
+      </ul>
+  
+    </div>
+  </div>
+          </li>
+
+          <li class="nav-item my-0">
+            <hr>         
+           </li>
+  
+            <li class="nav-item">
+              <a class="nav-link acitve" href="#"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
+            </li>
+
+      </li>
+      </ul>
+        </div>
+      </div>
+      <main class="mt-1 pt-3">
+        <div class="container-fluid">
+          <div class="row dashboard-counts">
+            <div class=" row col-md-12">
+              <h4 class="fw-bold text-uppercase">Dashboard</h4>
+              <p>Statistics of the System</p>
+
+              <div class="col-md-3">
+                <div class="card" >
+                  <div class="card-body text-center">
+                    <h6 class="card-title text-uppercase text-muted">Total Books</h6>
+                    <h1>{{total_books}}</h1>
+                    <a href="#" class="card-link link-underline-light">View More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="card" >
+                  <div class="card-body text-center">
+                    <h6 class="card-title text-uppercase text-muted">Total Members</h6>
+                    <h1>{{total_members}}</h1>
+                    <a href="#" class="card-link link-underline-light">View More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h6 class="card-title text-uppercase text-muted">Total Borrowed Books</h6>
+                    <h1>{{total_borrowed_books}}</h1>
+                    <a href="#" class="card-link link-underline-light">View More</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <h6 class="card-title text-uppercase text-muted">Returned this week</h6>
+                    <h1>{{returned_this_week}}</h1>
+                    <a href="#" class="card-link link-underline-light">View More</a>
+                  </div>
+                </div>
+              </div>
+     
+            </div>
+          </div>
+          <div class="row mt-5 dashboard-tabs">
+            <div class="col-md-12">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active text-uppercase" id="recent-members" data-bs-toggle="tab" data-bs-target="#recent-members-pane" type="button" role="tab" aria-controls="recent-members-pane" aria-selected="true">New Members</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link text-uppercase" id="recent-borrows-tab" data-bs-toggle="tab" data-bs-target="#recent-borrows-tab-pane" type="button" role="tab" aria-controls="recent-borrows-tab-pane" aria-selected="false">Recent Borrows</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link text-uppercase" id="recent-returns-tab" data-bs-toggle="tab" data-bs-target="#recent-returns-tab-pane" type="button" role="tab" aria-controls="recent-returns-tab-pane" aria-selected="false">Recent Returns</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+              
+                <div class="tab-pane fade show active" id="recent-members-pane" role="tabpanel" aria-labelledby="recent-members" tabindex="0">
+                 
+                  {%if new_members %}
+                  <table class="table">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Date joined</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {%for member in new_members%}
+                        <tr>
+                        <th scope="row">{{member.member_id}}</th>
+                        <td>{{member.full_name}}</td>
+                        <td>{{member.date_of_birth}}</td>
+                        <td>{{member.email}}</td>
+                        <td>{{member.date_created}}</td>
+                        <td>-</td>
+                        <td><span class="badge text-bg-success">Active</span></td>
+                        
+                      </tr>
+
+                     {%endfor%}
+                    </tbody>
+                  </table>
+                  {%else%}
+                  <h3 class="text-danger">No new members </h3>
+                  {%endif%}
+                </div>
+
+                 
+                <div class="tab-pane fade" id="recent-borrows-tab-pane" role="tabpanel" aria-labelledby="recent-borrows-tab" tabindex="0">
+                  
+                  {%if recent_borrowed_books%}
+                  
+                  <table class="table">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Book ID</th>
+                        <th scope="col">Book Title</th>
+                        <th scope="col">Check Out Date</th>
+                        <th scope="col">Due Date</th>
+                        <th scope="col">Member name</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      {%for borrowed_book in recent_borrowed_books%}
+                      <tr>
+                       <th scope="row">{{loop.index}}</th>
+                        <td>{{borrowed_book.book.book_id}}</td>
+                        <td>{{borrowed_book.book.title}}</td>
+                        <td>{{borrowed_book.date_issued}}</td>
+                        <td>{{borrowed_book.due_date}}</td>
+                        <td>{{borrowed_book.member.first_name}}</td>
+                        <td><span class="badge text-bg-success">Active</span>
+                        </td>
+                      </tr>
+
+                      {%endfor%}
+                    </tbody>
+                  </table>
+
+                  {%else%}
+                  <h3 class="text-danger">No Recent borrowed Books </h3>
+                  {%endif%}
+                </div>
+
+                
+                <div class="tab-pane fade" id="recent-returns-tab-pane" role="tabpanel" aria-labelledby="recent-returns-tab" tabindex="0">
+                  
+                  {%if recent_returned_books%}
+                  
+                  <table class="table">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">S/NO</th>
+                        <th scope="col">Book ID</th>
+                        <th scope="col">Book Name</th>
+                        <th scope="col">Borrow date</th>
+                        <th scope="col">Return date</th>
+                        <th scope="col">Borrower's Name</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      {%for returned_book in recent_returned_books%}
+                      <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{returned_book.book_id}}</td>
+                        <td>{{returned_book.title}}</td>
+                        <td>{{returned_book.due_issued}}</td>
+                        <td>{{returned_book.due_date}}</td>
+                        <td>{{returned_book.member}}</td>
+                        <td><span class="badge text-bg-success">Active</span>
+                        </td>
+                        
+                      </tr>
+                      {%endfor%}
+
+                     
+                    </tbody>
+                  </table>
+
+                  {%else%}
+                  <h3 class="text-danger">No recent returned books</h3>
+                  {%endif%}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+
+<script src="https://kit.fontawesome.com/355b51317d.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>
